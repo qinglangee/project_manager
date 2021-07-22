@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Manager</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../lib/vue-2.6.12.js"></script>
+</head>
+<body>
+<div class="container">
+    <div id="header"></div>
+    <div class="row">
+        <div class="col">
+            1 在写 2 写完 3 交视频 等验收 4 收货，好评。 发了文件 5 完成 群改名 6 结束
+        </div>
+    </div>
+
+    <button onclick="sendMessage()" class="btn-sm btn-primary">Good</button>
+    <button onclick="setData()" class="btn-sm btn-primary">Bad1</button>
+    <div id="project_list">
+        <template  v-for="pro of projects">
+            <div :key="'c1'+pro.time" class="row">
+                <div class="col">time:{{pro.time}}</div>
+                <div class="col">user:{{pro.user}}</div>
+                <div class="col">code:{{pro.code}}</div>
+                <div class="col">price:{{pro.price}}</div>
+                <div class="col">percent:{{pro.price * pro.percent}}</div>
+            </div>
+            <div :key="'c2'+pro.time" class="row">
+                <div class="col">tools:{{pro.tools}}</div>
+                <div class="col">due:{{pro.due}}</div>
+                <div class="col">
+                    <button class="btn-sm btn-primary">完成</button>
+                </div>
+            </div>
+            <div :key="'c3'+pro.time" class="row">
+                <div class="col">Desc:{{pro.desc}}</div>
+            </div>
+            <div class="row" v-if="pro.tools != null && pro.tools.length > 0">
+                <div class="col" v-for="(tool,index) of pro.tools" :key="tool">
+                    <input type="text" v-model="pro.tools[index]">
+                </div>
+            </div>
+        </template>
+    </div>
+    
+</div>
+</body>
+<script>
+    window.$ = window.jQuery = require('jquery');
+    $("#header").load("header.html");
+</script>
+<script>require('popper.js');</script>
+<script>require('bootstrap');</script>
+<script src="../js/project_list.js"></script>
+
+</html>

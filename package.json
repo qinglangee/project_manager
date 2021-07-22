@@ -1,0 +1,28 @@
+{
+  "name": "project_manager",
+  "version": "1.0.0",
+  "description": "project manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qinglangee/project_manager.git"
+  },
+  "author": "zhch",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/qinglangee/project_manager/issues"
+  },
+  "homepage": "https://github.com/qinglangee/project_manager#readme",
+  "devDependencies": {
+    "electron-reloader": "^1.2.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
+  }
+}
