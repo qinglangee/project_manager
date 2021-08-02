@@ -21,21 +21,21 @@
     <button onclick="setData()" class="btn-sm btn-primary">Bad1</button>
     <div id="project_list">
         <template  v-for="pro of projects">
-            <div :key="'c1'+pro.time" class="row">
+            <div :key="'k1_'+pro.time" class="row">
                 <div class="col">time:{{pro.time}}</div>
                 <div class="col">user:{{pro.user}}</div>
                 <div class="col">code:{{pro.code}}</div>
                 <div class="col">price:{{pro.price}}</div>
                 <div class="col">percent:{{pro.price * pro.percent}}</div>
             </div>
-            <div :key="'c2'+pro.time" class="row">
+            <div :key="'k2_'+pro.time" class="row">
                 <div class="col">tools:{{pro.tools}}</div>
                 <div class="col">due:{{pro.due}}</div>
                 <div class="col">
-                    <button class="btn-sm btn-primary">完成</button>
+                    <button onclick="finish()" class="btn-sm btn-primary">完成</button>
                 </div>
             </div>
-            <div :key="'c3'+pro.time" class="row">
+            <div :key="'k3_'+pro.time" class="row">
                 <div class="col">Desc:{{pro.desc}}</div>
             </div>
             <div class="row" v-if="pro.tools != null && pro.tools.length > 0">

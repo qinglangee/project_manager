@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Manager</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../lib/vue-2.6.12.js"></script>
+</head>
+<body>
+<div class="container">
+    <div id="header">添加  123</div>
+    添加项目
+
+    <div id="project_info">
+        <div class="row mb-2">
+            <label class="col-3" for="time">Time:</label>
+            <input class="form-control col-8" id="time" v-model="pro.time"/>
+        </div>
+        <div class="row mb-2">
+            <label class="col-3" for="user">User:</label>
+            <input class="form-control col-8" id="user" v-model="pro.user"/>
+        </div>
+        <div class="row mb-2">
+            <label class="col-3" for="code">Code:</label>
+            <input class="form-control col-8" id="code" v-model="pro.code"/>
+        </div>
+        <div class="row mb-2">
+            <label class="col-3" for="price">Price:</label>
+            <input class="form-control col-8" id="price" v-model="pro.price"/>
+        </div>
+        <div class="row mb-2">
+            <label class="col-3" for="percent">Percent:</label>
+            <input class="form-control col-8" id="percent" v-model="pro.percent"/>
+        </div>
+        <div class="row mb-2">
+            <label class="col-3" for="tools">Tools:</label>
+            <input class="form-control col-8" id="tools" v-model="pro.tools"/>
+        </div>
+        <div class="row mb-2">
+            <label class="col-3" for="due">Due:</label>
+            <input class="form-control col-8" id="due" v-model="pro.due"/>
+        </div>
+        <div class="row mb-2">
+            <label class="col-3" for="desc">Desc:</label>
+            <Textarea class="form-control col-8" id="desc" v-model="pro.desc"></Textarea>
+        </div>
+        <div class="row mb-2">
+            <button class="col-8 offset-2 btn btn-primary" onclick="save()">保存</button>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    window.$ = window.jQuery = require('../node_modules/jquery/dist/jquery.min.js');
+    $("#header").load("header.html");
+</script>
+<script>require('popper.js');</script>
+<script>require('bootstrap');</script>
+<script src="../js/project_edit.js"></script>
+</html>
