@@ -21,6 +21,7 @@
     <button onclick="setData()" class="btn-sm btn-primary">Bad1</button>
     <div id="project_list">
         <template  v-for="pro of projects">
+            <hr/>
             <div :key="'k1_'+pro.time" class="row">
                 <div class="col">time:{{pro.time}}</div>
                 <div class="col">user:{{pro.user}}</div>
@@ -33,6 +34,8 @@
                 <div class="col">due:{{pro.due}}</div>
                 <div class="col">
                     <button onclick="finish()" class="btn-sm btn-primary">完成</button>
+                    <button @click="editProject(pro.id)" class="btn-sm btn-primary">编辑</button>
+                    <button @click="deleteProject(pro.id)" class="btn-sm btn-danger">删除</button>
                 </div>
             </div>
             <div :key="'k3_'+pro.time" class="row">

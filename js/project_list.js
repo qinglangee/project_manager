@@ -1,21 +1,8 @@
 const { ipcRenderer } = require('electron')
 
 
-ipcRenderer.on("abcd", (event, content)=>{
-    // console.log("get content:", content.file);
-    // FlightInfo.initData(content.lines, content.file);
-    showMessage(content);
-});
-
-function sendMessage(){
-    // console.log("send a message 123");
-    ipcRenderer.send("abcd", 'openDirectory');
-}
 
 
-function showMessage(message){
-    console.log("zhmsg", message);
-}
 
 function showData(projects){
 
@@ -50,6 +37,28 @@ function setData(){
     ipcRenderer.send("updateData", data.projects);
 }
 
+/** 删除项目信息 */
+function deleteProject(id){
+    ipcRenderer.send("serverCall", {fun:"deleteProject", args:[id]});
+}
+// 删除项目结果处理
+ipcRenderer.on("deleteProject", (event, resp)=>{
+    showMessage(resp, "项目删除成功。");
+    pageLoad();
+});
+
+
+function showMessage(resp, message){
+    if(resp.code == 0){
+        infoDialog(message);
+    }else{
+        infoDialog(resp.message);
+    }
+}
+
+function infoDialog(message){
+    alert(message);
+}
 
 
 let data = {
@@ -61,7 +70,8 @@ var vm = new Vue({
     methods: {
         details: function() {
             return  this.site + " - 学的不仅是技术，更是梦想！";
-        }
+        },
+        deleteProject:deleteProject,
     }
 });
 

@@ -4,22 +4,10 @@ const { app, BrowserWindow, Menu, ipcMain,
 
 const dataManager = require('./data_manager');
 const projectService = require('./project_service');
+const userService = require('./user_service')
 const logger = require('./logger');
 
 ipcMain.on('abcd', function(event, message){
-    // console.log("nextTestFile:", message);
-    // let dir = "d:/temp/d3/delete/mydata/";
-    // fs.readdir(dir, function(err, files) {
-    //     if (err) {
-    //       console.error(err)
-    //       return
-    //     }
-    //     let index = Number(message) % files.length;
-    //     console.log("file is :", files[index]);
-    //     parseFile.parse(dir + files[index], function(result){
-    //         event.reply("open_file", result);
-    //     })
-    // });
     event.reply("abcd", dataManager.readData());
 
     
@@ -55,9 +43,12 @@ ipcMain.on("serverCall", function(event, paras){
 
 function serverCall(funcName, args){
     if(projectService[funcName] != null){
-        console.log("find fun ", funcName);
+        console.log("find project function ", funcName);
         let ret = projectService[funcName](...args);
-        console.log("call " + funcName + " " + ret);
+        return success(ret);
+    }else if(userService[funcName] != null){
+        console.log("find user function ", funcName)
+        let ret = userService[funcName](...args);
         return success(ret);
     }else{
         logger.error("not found " , funcName);

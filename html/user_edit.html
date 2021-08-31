@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Manager</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../lib/vue-2.6.12.js"></script>
+</head>
+<body>
+<div class="container">
+    <div id="header">添加  123</div>
+    添加用户
+
+    <div id="user_info">
+        <div class="row mb-2">
+            <label class="col-3" for="name">Name:</label>
+            <input class="form-control col-8" id="userId" v-model="user.id" type="hidden"/>
+            <input class="form-control col-8" id="name" v-model="user.name"/>
+        </div>
+        <div class="row mb-2">
+            <label class="col-3" for="qqname">QQ 名:</label>
+            <input class="form-control col-4"  id="qqname" v-model="user.qqname"/>
+        </div>
+        <div class="row mb-2">
+            <label class="col-3" for="qq">QQ 号:</label>
+            <input class="form-control col-4" id="qq" v-model="user.qq"/>
+        </div>
+        <div class="row mb-2">
+            <label class="col-3" for="wxname">微信名:</label>
+            <input class="form-control col-4"  id="wxname" v-model="user.wxname"/>
+        </div>
+        <div class="row mb-2">
+            <label class="col-3" for="weixin">微信号:</label>
+            <input class="form-control col-4" id="weixin" v-model="user.weixin"/>
+        </div>
+        <div class="row mb-2">
+            <label class="col-3" for="tel">电话:</label>
+            <input class="form-control col-8" id="tel" v-model="user.tel"/>
+        </div>
+        <div class="row mb-2">
+            <label class="col-3" for="desc">备注:</label>
+            <textarea class="form-control col-8" id="desc" v-model="user.desc"></textarea>
+        </div>
+        <div class="row mb-2">
+            <button class="col-8 offset-2 btn btn-primary" onclick="save()">保存</button>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    window.$ = window.jQuery = require('../node_modules/jquery/dist/jquery.min.js');
+    $("#header").load("header.html");
+</script>
+<script>require('popper.js');</script>
+<script>require('bootstrap');</script>
+<script src="../js/user_edit.js"></script>
+</html>

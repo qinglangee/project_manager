@@ -16,23 +16,30 @@
     <div id="project_info">
         <div class="row mb-2">
             <label class="col-3" for="time">Time:</label>
+            <input class="form-control col-8" id="proId" v-model="pro.id" type="hidden"/>
             <input class="form-control col-8" id="time" v-model="pro.time"/>
+        </div>
+        <div class="row mb-2">
+            <label class="col-3" for="state">State:</label>
+            <input class="form-control col-4" type="number" id="state" v-model="pro.state"/>
+            <label class="form-label col-3" for="user">{{showState(pro.state)}}</label>
         </div>
         <div class="row mb-2">
             <label class="col-3" for="user">User:</label>
             <input class="form-control col-8" id="user" v-model="pro.user"/>
         </div>
         <div class="row mb-2">
+            <!-- 中介给的编号 -->
             <label class="col-3" for="code">Code:</label>
             <input class="form-control col-8" id="code" v-model="pro.code"/>
         </div>
         <div class="row mb-2">
             <label class="col-3" for="price">Price:</label>
-            <input class="form-control col-8" id="price" v-model="pro.price"/>
+            <input class="form-control col-8" id="price" v-model.number="pro.price" type="number" step="50"/>
         </div>
         <div class="row mb-2">
             <label class="col-3" for="percent">Percent:</label>
-            <input class="form-control col-8" id="percent" v-model="pro.percent"/>
+            <input class="form-control col-8" id="percent" v-model.number="pro.percent" type="number" step="0.05"/>
         </div>
         <div class="row mb-2">
             <label class="col-3" for="tools">Tools:</label>

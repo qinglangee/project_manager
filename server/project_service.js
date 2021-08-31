@@ -1,5 +1,6 @@
 
 const projectDao = require('./project_dao');
+const moment = require('moment');
 
 /**
  * 获取所有项目信息
@@ -9,6 +10,7 @@ function getAllProjects(){
 }
 /** 保存项目信息 */
 function saveProject(project){
+    project.id = moment().format('YYYYMMDDHHmmssSSS');
     return projectDao.saveProject(project);
 }
 
@@ -20,6 +22,10 @@ function updateProject(project){
     return projectDao.updateProject(project);
 }
 
+/** 删除项目信息 */
+function deleteProject(id){
+    return projectDao.deleteProject(id);
+}
 
 function noParam(){
     return "no param";
@@ -38,6 +44,7 @@ exports = module.exports = {
     getAllProjects,
     saveProject,
     updateProject,
+    deleteProject,
     noParam,
     oneParam,
     multiParam,

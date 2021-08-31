@@ -6,11 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Manager</title>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../lib/vue-2.6.12.js"></script>
 </head>
 <body>
 <div class="container">
     <div id="header"></div>
     用户列表
+    <div id="user_list">
+        <table class="table table-striped">
+            <thead>
+
+                <tr>
+                    <th>名字</th>
+                    <th>QQ</th>
+                    <th>微信</th>
+                    <th>电话</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="user of users">
+                    <td>{{user.name}}</td>
+                    <td>{{user.qqname}}-{{user.qq}}</td>
+                    <td>{{user.wxname}}-{{user.weixin}}</td>
+                    <td>{{user.tel}}</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary">编辑</button>
+                        <button class="btn btn-sm btn-danger">删除</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 </div>
 </body>
@@ -18,7 +45,7 @@
     window.$ = window.jQuery = require('../node_modules/jquery/dist/jquery.min.js');
     $("#header").load("header.html");
 </script>
-<script>
-    require('../node_modules/bootstrap/dist/js/bootstrap.min.js');
-</script>
+<script>require('popper.js');</script>
+<script>require('bootstrap');</script>
+<script src="../js/user_list.js"></script>
 </html>
